@@ -1,0 +1,6 @@
+{
+  "name": "Vikram Sahitya",
+  "description": "Book promotion website for Victory's Hidden Defeat",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
