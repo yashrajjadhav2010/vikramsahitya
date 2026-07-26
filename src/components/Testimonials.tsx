@@ -5,17 +5,17 @@ import { Quote } from 'lucide-react';
 const reviews = [
   {
     quote: "A breathtaking descent into the mind of a legendary king. Patil writes with the precision of a historian and the soul of a poet.",
-    author: "Kavya S.",
+    author: "ARIHANT CHANDRAKAR",
     role: "Fantasy Literature Review"
   },
   {
     quote: "Unlike any mythological fiction I've read. The internal battles of Vikramaditya are far more thrilling than the physical wars.",
-    author: "Rahul M.",
+    author: "Abhinav",
     role: "Goodreads Top Reviewer"
   },
   {
     quote: "A cinematic, immersive masterpiece that redefines how we view ancient Bharat's greatest heroes.",
-    author: "The Bookish Chronicle",
+    author: "pravin",
     role: "Literary Blog"
   }
 ];
