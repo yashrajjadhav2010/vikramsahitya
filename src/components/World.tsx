@@ -147,82 +147,140 @@ export default function WorldOfVikramaditya() {
   const silhouetteY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   return (
-    <section 
-      id="universe" 
-      ref={containerRef}
-      className="py-24 md:py-32 relative bg-dark-charcoal border-y border-antique-gold/10 overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
-      
-      {/* Raj Mahal Silhouette CSS Overlay (Scroll Parallax) */}
-      <motion.div 
-        className="raj-mahal-silhouette"
-        style={{ y: silhouetteY }}
-      />
-
-      {/* Animated Palace/Pillar Texture Overlay (Mouse Parallax) */}
-      <motion.div 
-        className="absolute inset-0 opacity-[0.04] mix-blend-screen pointer-events-none flex items-center justify-center z-0"
-        style={{ x: mouseBgX, y: mouseBgY }}
+    <div className="flex flex-col">
+      <section 
+        id="universe" 
+        ref={containerRef}
+        className="py-24 md:py-32 relative bg-dark-charcoal border-y border-antique-gold/10 overflow-hidden"
+        onMouseMove={handleMouseMove}
       >
-         <img 
-           src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=2000" 
-           alt="Texture" 
-           className="w-[110%] h-[110%] max-w-none object-cover blur-[1px] grayscale contrast-125 animate-majestic-breath" 
-         />
-      </motion.div>
-
-      {/* The Animated War Scene & Solitude Graphic */}
-      <WarScene />
-
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center overflow-hidden">
-         <div className="w-[800px] h-[800px] border-[2px] border-antique-gold rounded-full flex items-center justify-center">
-            <div className="w-[700px] h-[700px] border-[1px] border-antique-gold rounded-full flex items-center justify-center border-dashed">
-               <div className="w-[600px] h-[600px] border-[2px] border-antique-gold rounded-full rotate-45 border-dotted"></div>
-            </div>
-         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
-        <SectionHeading 
-          title="The World of Vikramaditya" 
-          subtitle="Immerse yourself in a vividly recreated ancient Bharat—a realm of majestic palaces, sacred philosophies, and legendary kings." 
+        
+        {/* Raj Mahal Silhouette CSS Overlay (Scroll Parallax) */}
+        <motion.div 
+          className="raj-mahal-silhouette"
+          style={{ y: silhouetteY }}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -15, scale: 1.02 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 300, 
-                damping: 20,
-                delay: index * 0.1 
-              }}
-              className="glass-card p-8 rounded-2xl group relative overflow-hidden border-2 border-antique-gold/10 hover:border-antique-gold/40 bg-stone-black/70 backdrop-blur-sm"
-            >
-              {/* Hover background effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-antique-gold/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 border-2 border-antique-gold/30 rounded-2xl flex items-center justify-center mb-6 group-hover:border-antique-gold group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 bg-stone-black shadow-inner shadow-black">
-                  <feature.icon className="text-antique-gold w-8 h-8 group-hover:text-soft-gold transition-colors" />
-                </div>
-                <h3 className="font-cinzel text-2xl text-warm-ivory mb-4 tracking-wide group-hover:text-soft-gold transition-colors drop-shadow-sm font-bold">
-                  {feature.title}
-                </h3>
-                <p className="font-inter text-muted-sandstone leading-relaxed text-sm font-medium">
-                  {feature.description}
-                </p>
+        {/* Animated Palace/Pillar Texture Overlay (Mouse Parallax) */}
+        <motion.div 
+          className="absolute inset-0 opacity-[0.04] mix-blend-screen pointer-events-none flex items-center justify-center z-0"
+          style={{ x: mouseBgX, y: mouseBgY }}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=2000" 
+            alt="Texture" 
+            className="w-[110%] h-[110%] max-w-none object-cover blur-[1px] grayscale contrast-125 animate-majestic-breath" 
+          />
+        </motion.div>
+
+        {/* The Animated War Scene & Solitude Graphic */}
+        <WarScene />
+
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center overflow-hidden">
+          <div className="w-[800px] h-[800px] border-[2px] border-antique-gold rounded-full flex items-center justify-center">
+              <div className="w-[700px] h-[700px] border-[1px] border-antique-gold rounded-full flex items-center justify-center border-dashed">
+                <div className="w-[600px] h-[600px] border-[2px] border-antique-gold rounded-full rotate-45 border-dotted"></div>
               </div>
-            </motion.div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
+          <SectionHeading 
+            title="The World of Vikramaditya" 
+            subtitle="Immerse yourself in a vividly recreated ancient Bharat—a realm of majestic palaces, sacred philosophies, and legendary kings." 
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -15, scale: 1.02 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 20,
+                  delay: index * 0.1 
+                }}
+                className="glass-card p-8 rounded-2xl group relative overflow-hidden border-2 border-antique-gold/10 hover:border-antique-gold/40 bg-stone-black/70 backdrop-blur-sm"
+              >
+                {/* Hover background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-antique-gold/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 border-2 border-antique-gold/30 rounded-2xl flex items-center justify-center mb-6 group-hover:border-antique-gold group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 bg-stone-black shadow-inner shadow-black">
+                    <feature.icon className="text-antique-gold w-8 h-8 group-hover:text-soft-gold transition-colors" />
+                  </div>
+                  <h3 className="font-cinzel text-2xl text-warm-ivory mb-4 tracking-wide group-hover:text-soft-gold transition-colors drop-shadow-sm font-bold">
+                    {feature.title}
+                  </h3>
+                  <p className="font-inter text-muted-sandstone leading-relaxed text-sm font-medium">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Epic War Sequence Graphic Section */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-black border-b border-antique-gold/10 py-32">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1596638069695-17796d11dc50?auto=format&fit=crop&q=80&w=2000" 
+            alt="Ancient Battle Graphic" 
+            className="w-full h-full object-cover opacity-20 mix-blend-luminosity sepia-[0.3]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-black via-transparent to-stone-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-black via-transparent to-stone-black"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl text-gold-gradient tracking-widest mb-6 font-bold uppercase drop-shadow-lg">
+              The War Sequence
+            </h2>
+            <div className="w-24 h-1 bg-antique-gold/50 mx-auto mb-8 rounded-full"></div>
+            <p className="font-inter text-lg md:text-xl text-warm-ivory/80 leading-relaxed font-medium">
+              Every victory on the battlefield leaves a scar on the soul. The graphic reality of war is not written in the history books, but etched in the memories of the solitary kings who survived it.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Embers overlay specifically for this graphic section */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+           {[...Array(15)].map((_, i) => (
+             <motion.div
+               key={`ember-${i}`}
+               className="absolute bottom-[-10px] rounded-full bg-orange-500/60 shadow-[0_0_10px_2px_rgba(255,120,0,0.6)] mix-blend-screen"
+               style={{ 
+                 width: Math.random() * 4 + 2, 
+                 height: Math.random() * 4 + 2, 
+                 left: `${Math.random() * 100}%` 
+               }}
+               animate={{
+                 y: ["0vh", "-100vh"],
+                 x: ["0px", `${(Math.random() - 0.5) * 200}px`],
+                 opacity: [0, 1, 0, 1, 0]
+               }}
+               transition={{
+                 duration: Math.random() * 8 + 6,
+                 delay: Math.random() * 5,
+                 repeat: Infinity,
+                 ease: "easeOut"
+               }}
+             />
+           ))}
+        </div>
+      </section>
+    </div>
   );
 }
