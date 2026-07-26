@@ -55,7 +55,7 @@ export default function AboutAuthor() {
                <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] overflow-hidden rounded-2xl border-4 border-antique-gold/20 grayscale hover:grayscale-0 transition-all duration-1000 group">
                   <div className="absolute inset-0 bg-stone-black/20 z-10 group-hover:bg-transparent transition-colors duration-1000"></div>
                   <img 
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=1200" 
+                    src="https://i.ibb.co/rYSQB70/file-00000000844082088272ea3e6f447ad9.png" 
                     alt="Prajwal Patil - Author Portrait" 
                     className="w-full h-full object-cover object-top"
                   />
