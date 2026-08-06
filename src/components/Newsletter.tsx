@@ -16,9 +16,10 @@ export default function Newsletter() {
             Join the royal court. Receive exclusive character artwork, deleted scenes, and updates on future novels directly from Prajwal Patil.
           </p>
           
-          <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" action="https://formsubmit.co/prajwal61716@gmail.com" method="POST">
              <input 
                type="email" 
+               name="email"
                placeholder="Enter your email address" 
                className="flex-grow bg-dark-charcoal border-2 border-antique-gold/30 px-6 py-4 text-warm-ivory font-inter focus:outline-none focus:border-antique-gold transition-colors rounded-2xl shadow-inner shadow-black"
                required

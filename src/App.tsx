@@ -5,13 +5,15 @@ import Hero from './components/Hero';
 import AboutBook from './components/AboutBook';
 import WorldOfVikramaditya from './components/World';
 import Themes from './components/Themes';
-import ChapterOne from './components/ChapterOne';
 import AboutAuthor from './components/AboutAuthor';
 import Testimonials from './components/Testimonials';
 import Purchase from './components/Purchase';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 function HomePage() {
   return (
@@ -40,9 +42,10 @@ export default function App() {
             <Route path="/book" element={<PageWrapper><AboutBook /></PageWrapper>} />
             <Route path="/universe" element={<PageWrapper><WorldOfVikramaditya /></PageWrapper>} />
             <Route path="/themes" element={<PageWrapper><Themes /></PageWrapper>} />
-            <Route path="/chapter-one" element={<PageWrapper><ChapterOne /></PageWrapper>} />
             <Route path="/author" element={<PageWrapper><AboutAuthor /></PageWrapper>} />
             <Route path="/purchase" element={<PageWrapper><Purchase /></PageWrapper>} />
+            <Route path="/privacy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />
+            <Route path="/terms" element={<PageWrapper><TermsOfService /></PageWrapper>} />
           </Routes>
         </main>
         <Footer />

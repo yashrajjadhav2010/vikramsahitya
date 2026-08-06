@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Instagram } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 
 export default function AboutAuthor() {
@@ -34,11 +35,10 @@ export default function AboutAuthor() {
                 <div className="pt-8">
                    <p className="font-cinzel tracking-widest text-antique-gold text-sm uppercase">Follow the Author</p>
                    <div className="flex gap-6 mt-4">
-                      {['Instagram', 'Twitter', 'Goodreads'].map((platform) => (
-                        <a key={platform} href="#" className="text-warm-ivory hover:text-soft-gold transition-colors font-inter text-sm">
-                           {platform}
-                        </a>
-                      ))}
+                      <a href="https://instagram.com/Vikram_Sahitya_04" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-warm-ivory hover:text-soft-gold transition-colors font-inter text-sm">
+                         <Instagram size={20} />
+                         @Vikram_Sahitya_04
+                      </a>
                    </div>
                 </div>
               </motion.div>
