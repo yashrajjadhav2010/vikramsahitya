@@ -48,9 +48,11 @@ export default function Navbar() {
             className="z-50 shrink-0"
           >
             <Link to="/" className="flex items-center gap-2 md:gap-3 group">
-              <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-antique-gold flex items-center justify-center overflow-hidden shrink-0">
-                 <div className="w-3 h-3 md:w-4 md:h-4 bg-antique-gold rotate-45 group-hover:rotate-180 transition-transform duration-700"></div>
-              </div>
+              <img 
+                src="https://i.ibb.co/0VRdwfdR/file-000000001f908211a0bb5f0488b2e5b3.png" 
+                alt="Vikram Sahitya Logo" 
+                className="w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 group-hover:scale-110 transition-transform duration-500"
+              />
               <span className="font-cinzel text-sm md:text-xl font-semibold tracking-widest text-warm-ivory group-hover:text-antique-gold transition-colors duration-300 truncate max-w-[120px] md:max-w-none">
                 VIKRAM SAHITYA
               </span>
