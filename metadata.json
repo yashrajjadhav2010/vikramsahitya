@@ -1,6 +1,6 @@
 {
   "name": "Vikram Sahitya",
-  "description": "Book promotion website for Victory's Hidden Defeat",
+  "description": "Official launch website for Victory's Hidden Defeat (2026 Revised & Expanded Edition) by Prajwal Patil.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

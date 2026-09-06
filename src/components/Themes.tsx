@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, MouseEvent } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'motion/react';
 import SectionHeading from './SectionHeading';
 import { 
@@ -33,7 +33,7 @@ export default function Themes() {
   const mouseY = useMotionValue(0.5);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     mouseX.set(e.clientX / rect.width);
     mouseY.set(e.clientY / rect.height);

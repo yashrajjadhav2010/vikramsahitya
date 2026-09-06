@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, MouseEvent } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'motion/react';
 import SectionHeading from './SectionHeading';
 import { Shield, BookOpen, Crown, Flame, Gem, Eye } from 'lucide-react';
@@ -126,7 +126,7 @@ export default function WorldOfVikramaditya() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     mouseX.set(e.clientX / rect.width);
     mouseY.set(e.clientY / rect.height);

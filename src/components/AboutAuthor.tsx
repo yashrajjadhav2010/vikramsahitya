@@ -1,15 +1,17 @@
 import { motion } from 'motion/react';
 import { Instagram } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import AuthorVideos from './AuthorVideos';
 
 export default function AboutAuthor() {
   return (
-    <section id="author" className="py-24 md:py-32 bg-stone-black relative overflow-hidden">
-       {/* Background gradient */}
-       <div className="absolute right-0 bottom-0 w-1/2 h-1/2 bg-antique-gold/5 blur-[150px] rounded-full -z-10"></div>
-       
-       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+    <div className="flex flex-col">
+      <section id="author" className="py-20 md:py-28 bg-stone-black relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute right-0 bottom-0 w-1/2 h-1/2 bg-antique-gold/5 blur-[150px] rounded-full -z-10" />
+        
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             
             <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-center">
               <SectionHeading 
@@ -32,14 +34,21 @@ export default function AboutAuthor() {
                   "The stories of our past are not just chronicles of war; they are the blueprints of the human soul. I wrote <em className="text-warm-ivory">Victory's Hidden Defeat</em> to understand the man behind the myth—the agonizing choices that define a true leader when the world expects perfection."
                 </p>
                 
-                <div className="pt-8">
-                   <p className="font-cinzel tracking-widest text-antique-gold text-sm uppercase">Follow the Author</p>
-                   <div className="flex gap-6 mt-4">
-                      <a href="https://instagram.com/Vikram_Sahitya_04" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-warm-ivory hover:text-soft-gold transition-colors font-inter text-sm">
-                         <Instagram size={20} />
-                         @Vikram_Sahitya_04
-                      </a>
-                   </div>
+                <div className="pt-6">
+                  <p className="font-cinzel tracking-widest text-antique-gold text-xs uppercase font-semibold">
+                    Connect on Social Media
+                  </p>
+                  <div className="flex gap-6 mt-3">
+                    <a 
+                      href="https://instagram.com/vikram_sahitya_04" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 text-warm-ivory hover:text-antique-gold transition-colors font-inter text-sm"
+                    >
+                      <Instagram size={18} className="text-antique-gold" />
+                      <span>@vikram_sahitya_04</span>
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -47,25 +56,28 @@ export default function AboutAuthor() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.03, rotateZ: 1 }}
+              whileHover={{ scale: 1.02 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="lg:col-span-7 order-1 lg:order-2 relative cursor-pointer"
+              className="lg:col-span-7 order-1 lg:order-2 relative"
             >
-               <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] overflow-hidden rounded-2xl border-4 border-antique-gold/20 grayscale hover:grayscale-0 transition-all duration-1000 group">
-                  <div className="absolute inset-0 bg-stone-black/20 z-10 group-hover:bg-transparent transition-colors duration-1000"></div>
-                  <img 
-                    src="https://i.ibb.co/rYSQB70/file-00000000844082088272ea3e6f447ad9.png" 
-                    alt="Prajwal Patil - Author Portrait" 
-                    className="w-full h-full object-cover object-top"
-                  />
-                  {/* Decorative Frame */}
-                  <div className="absolute inset-4 border border-antique-gold/30 z-20 pointer-events-none group-hover:border-antique-gold/60 transition-colors duration-1000"></div>
-               </div>
+              <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] overflow-hidden rounded-2xl border-2 border-antique-gold/30 group shadow-2xl">
+                <div className="absolute inset-0 bg-stone-black/10 z-10 group-hover:bg-transparent transition-colors duration-700" />
+                <img 
+                  src="https://i.ibb.co/rYSQB70/file-00000000844082088272ea3e6f447ad9.png" 
+                  alt="Prajwal Patil - Author Portrait" 
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-4 border border-antique-gold/30 z-20 pointer-events-none group-hover:border-antique-gold/60 transition-colors duration-700" />
+              </div>
             </motion.div>
 
-         </div>
-       </div>
-    </section>
+          </div>
+        </div>
+      </section>
+
+      {/* Embedded Instagram Reels */}
+      <AuthorVideos />
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, Book, Compass, Feather, User } from 'lucide-react';
+import { Home, Book, Compass, Feather, User, Sparkles, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const desktopNavLinks = [
   { name: 'Home', href: '/' },
   { name: 'The Book', href: '/book' },
   { name: 'Universe', href: '/universe' },
-  { name: 'Themes', href: '/themes' },
+  { name: 'Themes & Preview', href: '/themes' },
   { name: 'Author', href: '/author' },
 ];
 
@@ -25,7 +25,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -33,29 +33,53 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Navbar (Desktop & Mobile Header) */}
+      {/* Top Launch Announcement Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-stone-black via-royal-crimson/80 to-stone-black border-b border-antique-gold/30 px-3 py-1.5 text-center shadow-md">
+        <Link 
+          to="/purchase"
+          className="inline-flex items-center justify-center gap-2 text-[11px] sm:text-xs font-cinzel tracking-wider text-soft-gold hover:text-warm-ivory transition-colors group"
+        >
+          <Sparkles size={12} className="text-antique-gold animate-pulse shrink-0" />
+          <span className="truncate">
+            <strong className="text-antique-gold font-bold">OFFICIAL LAUNCH:</strong> 2026 Revised & Expanded Edition Is Out Now!
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1 underline underline-offset-2 text-antique-gold group-hover:text-warm-ivory">
+            <span>Claim Copy</span>
+            <ArrowRight size={11} />
+          </span>
+        </Link>
+      </div>
+
+      {/* Main Top Navigation */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b border-transparent ${
-          isScrolled ? 'bg-stone-black/90 backdrop-blur-md border-antique-gold/20 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-4 md:py-6'
+        className={`fixed top-[29px] sm:top-[33px] left-0 right-0 z-40 transition-all duration-500 border-b border-transparent ${
+          isScrolled 
+            ? 'bg-stone-black/95 backdrop-blur-md border-antique-gold/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.7)]' 
+            : 'bg-stone-black/40 backdrop-blur-sm py-4 md:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-12 flex justify-between items-center gap-4">
+          
           {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             className="z-50 shrink-0"
           >
             <Link to="/" className="flex items-center gap-2 md:gap-3 group">
               <img 
                 src="https://i.ibb.co/0VRdwfdR/file-000000001f908211a0bb5f0488b2e5b3.png" 
                 alt="Vikram Sahitya Logo" 
-                className="w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 group-hover:scale-110 transition-transform duration-500"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]"
               />
-              <span className="font-cinzel text-sm md:text-xl font-semibold tracking-widest text-warm-ivory group-hover:text-antique-gold transition-colors duration-300 truncate max-w-[120px] md:max-w-none">
-                VIKRAM SAHITYA
-              </span>
+              <div className="flex flex-col">
+                <span className="font-cinzel text-sm md:text-lg font-semibold tracking-widest text-warm-ivory group-hover:text-antique-gold transition-colors duration-300 truncate max-w-[130px] sm:max-w-none">
+                  VIKRAM SAHITYA
+                </span>
+                <span className="font-inter text-[9px] tracking-[0.2em] text-antique-gold/80 uppercase hidden sm:block">
+                  New Edition 2026
+                </span>
+              </div>
             </Link>
           </motion.div>
 
@@ -65,18 +89,19 @@ export default function Navbar() {
               <Link 
                 key={link.name} 
                 to={link.href}
-                className={`font-inter text-sm tracking-wide transition-colors duration-300 relative group ${
-                  location.pathname === link.href ? 'text-antique-gold' : 'text-muted-sandstone hover:text-soft-gold'
+                className={`font-inter text-sm tracking-wide transition-colors duration-300 relative group py-1 ${
+                  location.pathname === link.href ? 'text-antique-gold font-medium' : 'text-muted-sandstone hover:text-soft-gold'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-[1px] bg-antique-gold transition-all duration-300 ${
+                <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-gradient-to-r from-antique-gold to-soft-gold transition-all duration-300 ${
                   location.pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}></span>
               </Link>
             ))}
           </div>
 
+          {/* Action Button */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -84,16 +109,17 @@ export default function Navbar() {
           >
             <Link 
               to="/purchase"
-              className="btn-duo-gold px-3 py-2 md:px-6 md:py-3 font-cinzel text-[10px] md:text-sm tracking-widest whitespace-nowrap"
+              className="btn-duo-gold px-3.5 py-2 md:px-5 md:py-2.5 font-cinzel text-[11px] md:text-xs font-bold tracking-widest whitespace-nowrap shadow-[0_0_15px_rgba(212,175,55,0.25)] flex items-center gap-1.5"
             >
-              ORDER NOW
+              <Sparkles size={13} className="hidden sm:inline" />
+              <span>ORDER EDITION</span>
             </Link>
           </motion.div>
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation Bar (App-like) */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-stone-black/95 backdrop-blur-xl border-t border-antique-gold/20 pb-[env(safe-area-inset-bottom)] shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+      {/* Mobile Bottom Navigation Bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-stone-black/95 backdrop-blur-xl border-t border-antique-gold/20 pb-[env(safe-area-inset-bottom)] shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
         <div className="flex justify-around items-center h-16 px-2">
           {mobileNavLinks.map((link) => {
             const isActive = location.pathname === link.href;
